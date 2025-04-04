@@ -4,7 +4,7 @@ import { computed, onMounted, useCssModule, useTemplateRef } from 'vue';
 import { useFavicon } from '@vueuse/core';
 
 import LogoIcon from './logo-icon.svg';
-import LogoText from './logo-text.svg';
+// import LogoText from './logo-text.svg';
 
 const props = defineProps<
 	(
@@ -58,7 +58,8 @@ onMounted(() => {
 <template>
 	<div :class="containerClasses" data-test-id="n8n-logo">
 		<LogoIcon ref="logo" :class="$style.logo" />
-		<LogoText v-if="showLogoText" :class="$style.logoText" />
+		<span v-if="showLogoText" :class="$style.logoText"> Tadalabs </span>
+		<!-- <LogoText v-if="showLogoText" :class="$style.logoText" />  -->
 		<slot />
 	</div>
 </template>
@@ -82,9 +83,10 @@ onMounted(() => {
 	margin-bottom: var(--spacing-xl);
 }
 
-.logo,
-.logoText {
-	transform: scale(1.3) translateY(-2px);
+.logo {
+	// transform: scale(1.3) translateY(-2px);
+	width: 42px;
+	height: 42px;
 }
 
 .logoText {
